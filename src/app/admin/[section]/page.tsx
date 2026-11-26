@@ -1,0 +1,8 @@
+import PermissionsManager from '@/components/permissions-manager';
+import SidebarManager from '@/components/sidebar-manager';
+import MediaManager from '@/components/media-manager';
+import DataManager from "@/components/data-manager";
+import SiteContentManager from '@/components/site-content-manager';
+import LocationSync from '@/components/location-sync';
+export function generateStaticParams(){return ["properties","property-approvals","users","roles","permissions","categories","locations","features","property-types","enquiries","viewings","bookings","calendar","reviews","articles","content-categories","tags","media","pages","menus","sidebars","comments","themes","customize","marketing","email-templates","newsletters","payments","payouts","payment-settings","analytics","activity-logs","settings","seo-settings","social-links","system","backups","subscriptions","subscription-plans","managed-services","service-promotions","land-verification","blog","ad-placements"].map(section=>({section}));}
+export default async function SectionPage({params}:{params:Promise<{section:string}>}){const {section}=await params;if(section==='permissions')return <PermissionsManager/>;if(section==='sidebars')return <SidebarManager/>;if(section==='media')return <MediaManager/>;if(['pages','blog','ad-placements'].includes(section))return <SiteContentManager/>;if(section==='locations')return <><LocationSync/><DataManager section={section}/></>;return <DataManager section={section}/>;}
