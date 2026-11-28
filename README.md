@@ -28,3 +28,6 @@ The application start script listens on Railway's `PORT` when supplied, otherwis
 
 ## Scope
 This batch intentionally includes only the homepage, login and signup. Property search results, property details, dashboards and admin tools are not included yet.
+
+## CSS build configuration
+This project explicitly includes Tailwind CSS 3, PostCSS and Autoprefixer as runtime dependencies, plus a matching `postcss.config.mjs` and `tailwind.config.ts`. This avoids the missing `tailwindcss` PostCSS plugin error when Railway builds the project.
